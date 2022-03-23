@@ -10,7 +10,7 @@ import java.util.List;
 public class DiscountApplier {
     private static final List<Class<? extends AbstractDiscount>> discountApplicationOrder = Arrays.asList(FifteenPercentGrainDiscount.class, TenPercentDiscount.class);
 
-    public static void applyDiscounts(Receipt receipt) {
+    public static Receipt applyDiscounts(Receipt receipt) {
         for (var discountClass : discountApplicationOrder) {
             try {
                 var discount = discountClass.getConstructor().newInstance();
@@ -25,5 +25,7 @@ public class DiscountApplier {
                 e.printStackTrace();
             }
         }
+
+        return receipt;
     }
 }
