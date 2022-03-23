@@ -19,16 +19,16 @@ public class FifteenPercentGrainDiscountTest {
         var productDb = new ProductDb();
         var cheese = productDb.getProduct("Cheese");
         var bread = productDb.getProduct("Bread");
-        var careals = productDb.getProduct("Cereals");
+        var cereals = productDb.getProduct("Cereals");
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 2));
-        receiptEntries.add(new ReceiptEntry(careals, 1));
+        receiptEntries.add(new ReceiptEntry(cereals, 1));
 
         var receipt = new Receipt(receiptEntries);
         var discount = new FifteenPercentGrainDiscount();
         var expectedTotalPrice = cheese.price().add(bread.price()).add(bread.price())
-                .add(careals.price()).multiply(BigDecimal.valueOf(0.85));
+                .add(cereals.price()).multiply(BigDecimal.valueOf(0.85));
 
         // When
         var receiptAfterDiscount = discount.apply(receipt);
@@ -44,15 +44,15 @@ public class FifteenPercentGrainDiscountTest {
         var productDb = new ProductDb();
         var cheese = productDb.getProduct("Cheese");
         var bread = productDb.getProduct("Bread");
-        var careals = productDb.getProduct("Cereals");
+        var cereals = productDb.getProduct("Cereals");
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 1));
-        receiptEntries.add(new ReceiptEntry(careals, 1));
+        receiptEntries.add(new ReceiptEntry(cereals, 1));
 
         var receipt = new Receipt(receiptEntries);
         var discount = new FifteenPercentGrainDiscount();
-        var expectedTotalPrice = cheese.price().add(bread.price()).add(careals.price());
+        var expectedTotalPrice = cheese.price().add(bread.price()).add(cereals.price());
 
         // When
         var receiptAfterDiscount = discount.apply(receipt);
