@@ -25,5 +25,5 @@ public class TenPercentDiscount extends AbstractDiscount {
     @Override
     public double getValue() {
         return VALUE;
-    };
+    }
 }
