@@ -17,8 +17,8 @@ class TenPercentDiscountTest {
     void shouldApply10PercentDiscountWhenPriceIsAbove50() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var steak = productDb.getProduct("Steak");
+        var cheese = productDb.getProduct("Cheese").get();
+        var steak = productDb.getProduct("Steak").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(steak, 1));
@@ -39,7 +39,7 @@ class TenPercentDiscountTest {
     void shouldNotApply10PercentDiscountWhenPriceIsBelow50() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
+        var cheese = productDb.getProduct("Cheese").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 2));
 

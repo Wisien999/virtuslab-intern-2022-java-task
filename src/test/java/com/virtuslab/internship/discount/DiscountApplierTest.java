@@ -16,9 +16,9 @@ public class DiscountApplierTest {
     public void shouldNotApplyDiscounts() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var banana = productDb.getProduct("Banana");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var banana = productDb.getProduct("Banana").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 1));
@@ -41,10 +41,10 @@ public class DiscountApplierTest {
     public void shouldApplyOnly10PercentDiscount() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
-        var banana = productDb.getProduct("Banana");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
+        var banana = productDb.getProduct("Banana").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 1));
@@ -70,10 +70,10 @@ public class DiscountApplierTest {
     public void shouldApplyOnly15PercentGrainDiscount() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
-        var banana = productDb.getProduct("Banana");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
+        var banana = productDb.getProduct("Banana").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 1));
@@ -99,10 +99,10 @@ public class DiscountApplierTest {
     public void shouldApply10PercentDiscountAnd15PercentGrainDiscount() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
-        var banana = productDb.getProduct("Banana");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
+        var banana = productDb.getProduct("Banana").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 2));

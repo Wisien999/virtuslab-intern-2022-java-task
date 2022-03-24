@@ -17,9 +17,9 @@ public class FifteenPercentGrainDiscountTest {
     void shouldApply15PercentGrainDiscountWhenAtLeast3GrainProducts() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 2));
@@ -42,9 +42,9 @@ public class FifteenPercentGrainDiscountTest {
     void shouldNotApply15PercentGrainDiscountWhenLessThan3GrainProducts() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 1));
@@ -66,9 +66,9 @@ public class FifteenPercentGrainDiscountTest {
     void shouldNotApply15PercentGrainDiscountWhen10PercentDiscountAppliedBefore() {
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
+        var cheese = productDb.getProduct("Cheese").get();
+        var bread = productDb.getProduct("Bread").get();
+        var cereals = productDb.getProduct("Cereals").get();
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(bread, 5));
