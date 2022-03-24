@@ -3,13 +3,21 @@ package com.virtuslab.internship.discount;
 import com.virtuslab.internship.receipt.Receipt;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class DiscountApplier {
-    private static final List<Class<? extends AbstractDiscount>> discountApplicationOrder = Arrays.asList(FifteenPercentGrainDiscount.class, TenPercentDiscount.class);
+    private static final List<Class<? extends AbstractDiscount>> discountApplicationOrder = Arrays.asList(
+            FifteenPercentGrainDiscount.class,
+            TenPercentDiscount.class
+    );
 
     public static Receipt applyDiscounts(Receipt receipt) {
+        if (receipt == null) {
+            return new Receipt(new ArrayList<>());
+        }
+
         for (var discountClass : discountApplicationOrder) {
             try {
                 var discount = discountClass.getConstructor().newInstance();

@@ -5,9 +5,6 @@ import com.virtuslab.internship.receipt.Receipt;
 import java.math.BigDecimal;
 
 public abstract class AbstractDiscount {
-    public static String NAME;
-    public static double VALUE;
-
     public Receipt apply(Receipt receipt) {
         if (shouldApply(receipt)) {
             var totalPrice = receipt.totalPrice().multiply(BigDecimal.valueOf(1).subtract(BigDecimal.valueOf(getValue())));
